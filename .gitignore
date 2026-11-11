@@ -1,5 +1,6 @@
 data/raw/*
 !data/raw/.gitkeep
+data/bronze/repos.jsonl
 __pycache__/
 *.py[cod]
 .venv/

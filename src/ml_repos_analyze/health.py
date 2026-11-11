@@ -109,9 +109,13 @@ def score_row(r: dict[str, Any]) -> dict[str, Any]:
     architecture = round(
         (architecture_size_score + network_score + (100.0 if module_count > 0 else 0.0)) / 3.0, 2
     )
+    # Presence of dependency metadata only counts when there is something to
+    # count: a filled 0 (missing data) must not grant the +100 "field exists"
+    # term. (Port note: BQ used IF(dependency_count IS NULL, 0, 100), which
+    # inflates scores once a bronze fills missing columns with 0.)
     dependency = round(
         (
-            (100.0 if r.get("dependency_count") is not None else 0.0)
+            (100.0 if dependency_count > 0 else 0.0)
             + (100.0 if package_count > 0 else 0.0)
             + min(100.0, 20.0 * _log1p(dependency_count))
         )
@@ -131,7 +135,10 @@ def score_row(r: dict[str, Any]) -> dict[str, Any]:
     else:
         status = "dormant"
 
-    name = str(r.get("full_name") or r.get("name") or "").lower()
+    # Classify by the repo name, not full_name: the owner ("bonsai") already
+    # contains "ai", which pushed 906/1025 real repos into ai/ml.
+    full = str(r.get("full_name") or r.get("name") or "").lower()
+    name = full.rsplit("/", 1)[-1] if "/" in full else full
     if re.search(r"(agent|mcp|aw|workflow|task|orchestrat)", name):
         layer = "agent/workflow"
     elif re.search(r"(quiz|game|idol|story|novel|music|anime)", name):

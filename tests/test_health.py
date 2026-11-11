@@ -32,3 +32,19 @@ def test_cluster_runs():
     clustered = cluster_health(scored, n_clusters=2)
     assert "cluster_id" in clustered.columns
     assert len(clustered) == 3
+
+
+def test_layer_matches_repo_name_not_owner():
+    # owner "bonsai" contains "ai"; the old full_name regex pushed
+    # 906/1025 real repos into ai/ml because of that.
+    assert score_row({"full_name": "bonsai/notes-db"})["layer"] == "data/knowledge"
+    assert score_row({"full_name": "bonsai/counter"})["layer"] == "software"
+
+
+def test_dependency_ignores_filled_zero():
+    # A bronze that fills missing dependency metadata with 0 must not
+    # earn the BQ "field exists" +100 term.
+    r = score_row({"full_name": "bonsai/plain", "package_count": 0})
+    assert r["dependency"] == 0.0
+    r2 = score_row({"full_name": "bonsai/plain", "dependency_count": 3})
+    assert r2["dependency"] > 0.0
