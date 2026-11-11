@@ -1,0 +1,44 @@
+# Feature contract for repo health (aligned with repos-analyze BQML SQL)
+version: 0.1.0
+
+entity: repository_snapshot
+primary_key: full_name
+
+columns:
+  - full_name
+  - snapshot_at
+  - fork
+  - archived
+  - language
+  - stars
+  - forks
+  - size
+  - open_issues
+  - commits_30d
+  - prs_merged_90d
+  - releases_90d
+  - contributors_90d
+  - contributors_total
+  - issues_closed_90d
+  - test_loc
+  - loc
+  - coverage
+  - ci
+  - tests
+  - lint
+  - security_scan
+  - documentation
+  - package_count
+  - module_count
+  - dependency_count
+  - incoming
+  - outgoing
+
+score_axes:
+  - activity
+  - maintenance
+  - quality
+  - community
+  - architecture
+  - dependency
+  - overall
