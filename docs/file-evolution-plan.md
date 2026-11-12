@@ -54,7 +54,7 @@
 | **2** | `tools/diff_manifests.py` — 前回 vs 今回 → `events.jsonl`（added/removed/changed） | — | 2 時点目で events が出る | **ツール完成**（自己差分 0 イベント検証済み）・2 時点目待ち |
 | **3** | 週次化 — `repo-snapshot.yml` を拡張し Actions から収集、成果物は Drive へ | 1.2 の workflow | 手動実行なしで 2 週連続 capture | 未 |
 | **4** | 分析統合 — `run_health_cluster.py --evolution` で churn/生存/成長を health 軸に追加 | health/cluster/enrich | 進化特徴つきレポート | 未 |
-| **5** | skills 台帳の git 歴復元 — `skills/INDEX.yaml` の各コミット時点 → `skill_inventory.jsonl`（4 時点以上、12a90e1 = 463 skills） | git log（#396 で確認済み） | ≥4 時点の inventory 復元 | 未 |
+| **5** | skills 台帳の git 歴復元 — `skills/INDEX.yaml` の各コミット時点 → `skill_inventory.jsonl` | git log（#396 で確認済み） | ≥4 時点の inventory 復元 | **完了**（`tools/skill_inventory_from_git.py` → 2,136 rows / 4 時点： 10-31×2, 11-06, 11-09。INDEX.yaml は 11-06 削除済みのため本体は skills-inventory.json + bqml/skills.ndjson） |
 
 原則: **スナップショットは追記のみ・不変**。差分と分析はいつでも再生成できる（派生）。
 
