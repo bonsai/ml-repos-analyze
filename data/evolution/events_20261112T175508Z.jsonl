@@ -1,0 +1,85 @@
+{"event": "repo_uncaptured", "full_name": "bonsai/.agents", "old_files": 86, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/EX", "old_files": 7, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/IX", "old_files": 5, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/LX", "old_files": 7, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/OX", "old_files": 4, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/PX", "old_files": 15, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/SHITAGAKI", "old_files": 70, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/SX", "old_files": 8, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/TORISETSU", "old_files": 6, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/TX", "old_files": 5, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/UX", "old_files": 6, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/bqmlite", "old_files": 39, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/char-distribution", "old_files": 3, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/ds-insighter", "old_files": 7, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/ds-view", "old_files": 7, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/emoji-shiritori", "old_files": 46, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/ext-install-skill", "old_files": 5, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/gen-favicon", "old_files": 11, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/gh-chatgpt-ext", "old_files": 24, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/grill-me", "old_files": 3, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/hakkutu", "old_files": 3, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/hoshi-novel", "old_files": 28, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/idol-playlist", "old_files": 60, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/kenja", "old_files": 9, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/koseki", "old_files": 8, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/makaizou-init", "old_files": 3, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/mimic-me", "old_files": 3, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/owarai-live", "old_files": 57, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/pain", "old_files": 11, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/pi-config-memo", "old_files": 4, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/progressive-life", "old_files": 65, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/progressive-life-os", "old_files": 30, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/rakugo-generator", "old_files": 5, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/recap", "old_files": 8, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/sync-db", "old_files": 12, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/talk-db", "old_files": 23, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/talkscripts", "old_files": 92, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/tsumete", "old_files": 3, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/win-tips", "old_files": 1, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/writing", "old_files": 3, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/xX", "old_files": 68, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/yose-db", "old_files": 120, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "repo_uncaptured", "full_name": "bonsai/yoshimoto-theater", "old_files": 9, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "docs/observability-plan.md", "new_size": 8215, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/Observability", "path": "README.md", "old_size": 1962, "new_size": 2539, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": ".github/workflows/file-evolution.yml", "new_size": 2675, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/events.jsonl", "new_size": 0, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/events_2026-11-13b.jsonl", "new_size": 14839, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_2026-11-12.errors.jsonl", "new_size": 5637, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_2026-11-12.jsonl", "new_size": 6669625, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_2026-11-13.errors.jsonl", "new_size": 5637, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_2026-11-13.jsonl", "new_size": 6669625, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_2026-11-13b.errors.jsonl", "new_size": 7386, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_2026-11-13b.jsonl", "new_size": 8532881, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/repo_snapshots.jsonl", "new_size": 1190812, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/skill_inventory.jsonl", "new_size": 1204242, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/skill_inventory.jsonl.summary.txt", "new_size": 655, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "docs/file-evolution-plan.md", "new_size": 13979, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "src/ml_repos_analyze/bronze.py", "new_size": 2564, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "src/ml_repos_analyze/enrich.py", "new_size": 8573, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tests/test_bronze.py", "new_size": 1208, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tests/test_enrich.py", "new_size": 2604, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/collect_features.py", "new_size": 2660, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/collect_manifests.py", "new_size": 5448, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/diff_manifests.py", "new_size": 6401, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/diff_skill_inventory.py", "new_size": 2735, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/measure_predictions.py", "new_size": 9562, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/run_health_cluster.py", "new_size": 5095, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/skill_inventory_from_git.py", "new_size": 4739, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "tools/snapshots_from_repositories.py", "new_size": 2172, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/ml-repos-analyze", "path": ".gitignore", "old_size": 108, "new_size": 195, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/ml-repos-analyze", "path": "README.md", "old_size": 2321, "new_size": 2857, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/ml-repos-analyze", "path": "src/ml_repos_analyze/health.py", "old_size": 5726, "new_size": 6210, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/ml-repos-analyze", "path": "tests/test_health.py", "old_size": 1002, "new_size": 1701, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/yukidaruma", "path": "docs/adr/002-storage-compute-ui.md", "new_size": 2003, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/yukidaruma", "path": "docs/tracing.md", "new_size": 12975, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/yukidaruma", "path": "poc/README.md", "new_size": 1065, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/yukidaruma", "path": "poc/index.html", "new_size": 9148, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_added", "full_name": "bonsai/yukidaruma", "path": "tests/test_poc_job.py", "new_size": 2295, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/yukidaruma", "path": "README.md", "old_size": 1878, "new_size": 2412, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/yukidaruma", "path": "docs/PRD.md", "old_size": 18553, "new_size": 19880, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/yukidaruma", "path": "docs/architecture.puml", "old_size": 4494, "new_size": 5224, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/yukidaruma", "path": "docs/growth-stages.md", "old_size": 5578, "new_size": 4397, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/yukidaruma", "path": "docs/roadmap-poc-mvp-max.md", "old_size": 8476, "new_size": 6630, "detected_at": "2026-11-12T17:59:43+00:00"}
+{"event": "file_changed", "full_name": "bonsai/yukidaruma", "path": "schemas/job.schema.json", "old_size": 4537, "new_size": 5563, "detected_at": "2026-11-12T17:59:43+00:00"}
