@@ -51,7 +51,7 @@
 |---|---|---|---|---|
 | **0** | `repositories.jsonl`（1,025 行）→ `repo_snapshots.jsonl` v1（collected_at を captured_at に） | 1.2 の jsonl | Drive `evolution/` に 1 時点目が存在 | 次の一歩 |
 | **1** | `tools/collect_manifests.py` — 全 repo の file manifest（path/size/blob_sha）を GraphQL trees で取得（~15 req） | enrich.py のバッチ方式 | 340 scan 対象の manifest 1 時点目 | 未 |
-| **2** | `tools/diff_manifests.py` — 前回 vs 今回 → `events.jsonl`（added/removed/changed） | — | 2 時点目で events が出る | 未 |
+| **2** | `tools/diff_manifests.py` — 前回 vs 今回 → `events.jsonl`（added/removed/changed） | — | 2 時点目で events が出る | **ツール完成**（自己差分 0 イベント検証済み）・2 時点目待ち |
 | **3** | 週次化 — `repo-snapshot.yml` を拡張し Actions から収集、成果物は Drive へ | 1.2 の workflow | 手動実行なしで 2 週連続 capture | 未 |
 | **4** | 分析統合 — `run_health_cluster.py --evolution` で churn/生存/成長を health 軸に追加 | health/cluster/enrich | 進化特徴つきレポート | 未 |
 | **5** | skills 台帳の git 歴復元 — `skills/INDEX.yaml` の各コミット時点 → `skill_inventory.jsonl`（4 時点以上、12a90e1 = 463 skills） | git log（#396 で確認済み） | ≥4 時点の inventory 復元 | 未 |
