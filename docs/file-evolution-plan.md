@@ -49,7 +49,7 @@
 
 | Step | やること | 使う既存 | 完了条件 | 状態 |
 |---|---|---|---|---|
-| **0** | `repositories.jsonl`（1,025 行）→ `repo_snapshots.jsonl` v1（collected_at を captured_at に） | 1.2 の jsonl | Drive `evolution/` に 1 時点目が存在 | **完了**（2026-11-12、1,025 rows） |
+| **0** | `repositories.jsonl`（1,025 行）→ `repo_snapshots.jsonl` v1（collected_at を captured_at に） | 1.2 の jsonl | Drive `evolution/` に 1 時点目が存在 | **完了**（v1: 1,025 rows @ 2026-09-27 + **v2: 1,164 rows @ 2026-11-12**〔yukidaruma 等の新規 repo 込み〕= 計 2,189 rows / 2 時点） |
 | **1** | `tools/collect_manifests.py` — 全 repo の file manifest（path/size/blob_sha）。GraphQL は recursive 不可のため **REST trees 1 req/repo**（実装で訂正） | enrich.py のバッチ方式 | manifest 1 時点目 | **完了**（2 時点: 11-12 と 11-13。各 非fork 537 repo / 26,775 files / 625 MB / errors 44 = empty 42・not found 2） |
 | **2** | `tools/diff_manifests.py` — 前回 vs 今回 → `events.jsonl`（added/removed/changed） | — | 2 時点目で events が出る | **完了**（2026-11-13 実測: **0 events / churn 0.0%** — 1 日窓。events.jsonl は Drive evolution/） |
 | **3** | 週次化 — `repo-snapshot.yml` を拡張し Actions から収集、成果物は Drive へ | 1.2 の workflow | 手動実行なしで 2 週連続 capture | 未 |
