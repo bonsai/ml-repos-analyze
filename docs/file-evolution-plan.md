@@ -50,8 +50,8 @@
 | Step | やること | 使う既存 | 完了条件 | 状態 |
 |---|---|---|---|---|
 | **0** | `repositories.jsonl`（1,025 行）→ `repo_snapshots.jsonl` v1（collected_at を captured_at に） | 1.2 の jsonl | Drive `evolution/` に 1 時点目が存在 | **完了**（v1: 1,025 rows @ 2026-09-27 + **v2: 1,164 rows @ 2026-11-12**〔yukidaruma 等の新規 repo 込み〕= 計 2,189 rows / 2 時点） |
-| **1** | `tools/collect_manifests.py` — 全 repo の file manifest（path/size/blob_sha）。GraphQL は recursive 不可のため **REST trees 1 req/repo**（実装で訂正） | enrich.py のバッチ方式 | manifest 1 時点目 | **完了**（2 時点: 11-12 と 11-13。各 非fork 537 repo / 26,775 files / 625 MB / errors 44 = empty 42・not found 2） |
-| **2** | `tools/diff_manifests.py` — 前回 vs 今回 → `events.jsonl`（added/removed/changed） | — | 2 時点目で events が出る | **完了**（2026-11-13 実測: **0 events / churn 0.0%** — 1 日窓。events.jsonl は Drive evolution/） |
+| **1** | `tools/collect_manifests.py` — 全 repo の file manifest（path/size/blob_sha）。GraphQL は recursive 不可のため **REST trees 1 req/repo**（実装で訂正） | enrich.py のバッチ方式 | manifest 1 時点目 | **完了**（3 capture: 11-12 / 11-13a / 11-13b〔snapshot v2 適用で対象 537→673 に拡大〕。最新: 616 OK / 35,070 files / 850 MB / errors 57） |
+| **2** | `tools/diff_manifests.py` — 前回 vs 今回 → `events.jsonl`（added/removed/changed） | — | 2 時点目で events が出る | **完了**（2 diff 窓とも **0 events / churn 0.0%**。11-13b 窓では **repo_added 123**〔snapshot v2 による coverage 拡大分〕。events は Drive evolution/） |
 | **3** | 週次化 — `repo-snapshot.yml` を拡張し Actions から収集、成果物は Drive へ | 1.2 の workflow | 手動実行なしで 2 週連続 capture | 未 |
 | **4** | 分析統合 — `run_health_cluster.py --evolution` で churn/生存/成長を health 軸に追加 | health/cluster/enrich | 進化特徴つきレポート | 未 |
 | **5** | skills 台帳の git 歴復元 — `skills/INDEX.yaml` の各コミット時点 → `skill_inventory.jsonl` | git log（#396 で確認済み） | ≥4 時点の inventory 復元 | **完了**（`tools/skill_inventory_from_git.py` → 2,136 rows / 4 時点： 10-31×2, 11-06, 11-09。INDEX.yaml は 11-06 削除済みのため本体は skills-inventory.json + bqml/skills.ndjson） |
@@ -124,8 +124,8 @@
 | P8 | 90 日以内 push 15〜25% | **64.3%** | ⚠️ 外れ（上） |
 | P9 | big&dead 過半 | **5/20** | ⚠️ 外れ（下） |
 | P10 | クラスタ 8〜12 | **6** | ⚠️ 外れ（下） |
-| P11 | コード churn ≤2 割 | **0.0%**（11-12 → 11-13、26,775 files 中 0 events） | ✅ 範囲内 |
-| P12 | 削除検出可能 | **repo_vanished 0 / file_removed 0**（検出機構は動作。not found 2 repo は両時点で sidecar 記録） | ✅ 機構動作 |
+| P11 | コード churn ≤2 割 | **0.0%**（2 窓: 11-12→11-13、11-13→11-13b〔coverage 拡大 +123 repo〕でともに 0 events） | ✅ 範囲内 |
+| P12 | 削除検出可能 | **repo_vanished 0 / file_removed 0**（検出機構は動作。errors sidecar 44 → 57〔新規対象に empty が増加〕） | ✅ 機構動作 |
 
 ### 外れの理由（kaggle-prediction 3 分類）
 
