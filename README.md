@@ -61,3 +61,5 @@ Missing columns are treated as 0 / False so a minimal GitHub export still runs.
 4. Run health → cluster → inspect
 
 Later: same features feed real BQML `CREATE MODEL` in `repos-analyze`.
+
+**Phase 2 (file evolution plan)**: see [docs/file-evolution-plan.md](./docs/file-evolution-plan.md) — track file/repo evolution across all repos via GH metadata (repo_snapshots / file_manifests / events), with pre-registered predictions P1–P12.
