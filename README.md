@@ -64,4 +64,4 @@ Later: same features feed real BQML `CREATE MODEL` in `repos-analyze`.
 
 **Phase 2 (file evolution plan)**: see [docs/file-evolution-plan.md](./docs/file-evolution-plan.md) — track file/repo evolution across all repos via GH metadata (repo_snapshots / file_manifests / events), with pre-registered predictions P1–P12.
 
-**Sibling plan (LLM observability)**: see [docs/observability-plan.md](./docs/observability-plan.md) — self-host an OpenRouter-observability-style provider on Kaggle (llm_requests / balance_snapshots / model_catalog), seeded from metrics.db (518 request-level rows).
+**Sibling plan (LLM observability)**: grafted to [bonsai/Observability](https://github.com/bonsai/Observability) — see its `docs/observability-plan.md` (self-host an OpenRouter-observability-style provider on Kaggle, seeded from metrics.db; the destination catalog lives there too).
