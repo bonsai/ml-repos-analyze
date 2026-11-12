@@ -1,0 +1,82 @@
+name: file evolution capture
+
+# Weekly capture of per-repo file manifests + diff against the previous
+# capture (wiki #396, docs/file-evolution-plan.md Step 1-2).
+#
+# Notes:
+# - Uses the default GITHUB_TOKEN: public repos are captured; private repos
+#   in the org return 404 and land in the errors sidecar (they are excluded
+#   from repo_vanished/file_removed events by diff_manifests.py --new-errors,
+#   so a token limitation never fakes a disappearance).
+# - Outputs are committed to data/evolution/ (the repo is the archive);
+#   mirror to Drive from a workstation when needed.
+# - GITHUB_TOKEN rate limit is 1,000 req/hour per repo — the capture guard
+#   stops early if the remaining budget drops below the safety threshold.
+
+on:
+  schedule:
+    - cron: "0 2 * * 1" # Mondays 02:00 UTC = 11:00 JST
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: file-evolution
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install GitHub CLI
+        run: |
+          (type -p wget >/dev/null || sudo apt-get install wget -y) \
+          && sudo mkdir -p -m 755 /etc/apt/keyrings \
+          && out=$(mktemp) && wget -nv -O "$out" https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+          && cat "$out" | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+          && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+          && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+          && sudo apt-get update && sudo apt-get install gh -y
+
+      - name: Capture manifests (point N)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONUTF8: "1"
+        run: |
+          STAMP=$(date +%F)
+          python tools/collect_manifests.py \
+            data/evolution/repo_snapshots.jsonl \
+            --out "data/evolution/file_manifests_${STAMP}.jsonl" \
+            --errors "data/evolution/file_manifests_${STAMP}.errors.jsonl"
+
+      - name: Diff against previous capture
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          STAMP=$(date +%F)
+          prev=$(ls data/evolution/file_manifests_2*.jsonl 2>/dev/null | grep -v errors | sort | tail -2 | head -1 || true)
+          curr="data/evolution/file_manifests_${STAMP}.jsonl"
+          if [ -n "$prev" ] && [ "$prev" != "$curr" ]; then
+            python tools/diff_manifests.py "$prev" "$curr" \
+              --out "data/evolution/events_${STAMP}.jsonl" \
+              --new-errors "data/evolution/file_manifests_${STAMP}.errors.jsonl" \
+              --summary "data/evolution/manifest_diff_${STAMP}.md"
+          else
+            echo "only one manifest present — diff skipped (first capture)"
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "bonsai"
+          git config user.email "onsen.bonsai@gmail.com"
+          git add data/evolution
+          git commit -m "evolution capture $(date +%F)" || echo "nothing to commit"
+          git push

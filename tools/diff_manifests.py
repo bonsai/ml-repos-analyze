@@ -56,15 +56,41 @@ def main() -> int:
     ap.add_argument("--out", required=True, help="events.jsonl")
     ap.add_argument("--summary", default=None)
     ap.add_argument("--detected-at", default=None)
+    ap.add_argument("--old-errors", default=None,
+                    help="errors sidecar of the OLD capture")
+    ap.add_argument("--new-errors", default=None,
+                    help="errors sidecar of the NEW capture — repos listed here are "
+                         "reported as repo_uncaptured, never repo_vanished (a token "
+                         "limitation must not fake a disappearance)")
     args = ap.parse_args()
 
     old, old_trunc, _ = load(args.old)
     new, new_trunc, _ = load(args.new)
     detected = args.detected_at or datetime.now(timezone.utc).isoformat(timespec="seconds")
 
+    def errored(sidecar):
+        names = set()
+        if sidecar and Path(sidecar).exists():
+            for line in open(sidecar, encoding="utf-8"):
+                if line.strip():
+                    name = (json.loads(line).get("full_name") or "").strip()
+                    if name:
+                        names.add(name)
+        return names
+
+    errored_new = errored(args.new_errors)
+
     events: list[dict] = []
 
+    uncaptured = 0
     for full in sorted(set(old) - set(new)):
+        if full in errored_new:
+            # uncapturable in the new run (token limitation, empty, transient) —
+            # not evidence of a disappearance
+            events.append({"event": "repo_uncaptured", "full_name": full,
+                           "old_files": len(old[full]), "detected_at": detected})
+            uncaptured += 1
+            continue
         events.append({"event": "repo_vanished", "full_name": full,
                        "old_files": len(old[full]), "detected_at": detected})
     for full in sorted(set(new) - set(old)):
@@ -103,7 +129,8 @@ def main() -> int:
     lines.append(f"old: {args.old} ({len(old)} repos) / new: {args.new} ({len(new)} repos)")
     lines.append(f"detected_at: {detected}")
     lines.append("")
-    lines.append(f"- repo_added: {len(new) - len(set(old) & set(new))} / repo_vanished: {len(set(old) - set(new))}")
+    vanished = sum(1 for e in events if e["event"] == "repo_vanished")
+    lines.append(f"- repo_added: {len(new) - len(set(old) & set(new))} / repo_vanished: {vanished} / repo_uncaptured: {uncaptured}")
     lines.append(f"- file_added: {files_added} / file_removed: {files_removed} / file_changed: {files_changed}")
     total_new_files = sum(len(new[f]) for f in (set(old) & set(new)))
     overall = 100 * (files_added + files_removed + files_changed) / max(1, total_new_files)
