@@ -36,22 +36,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install GitHub CLI
-        run: |
-          (type -p wget >/dev/null || sudo apt-get install wget -y) \
-          && sudo mkdir -p -m 755 /etc/apt/keyrings \
-          && out=$(mktemp) && wget -nv -O "$out" https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-          && cat "$out" | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-          && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-          && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-          && sudo apt-get update && sudo apt-get install gh -y
+      # gh is preinstalled on ubuntu-latest runners — no install step needed.
 
       - name: Capture manifests (point N)
         env:
           GH_TOKEN: ${{ github.token }}
           PYTHONUTF8: "1"
         run: |
-          STAMP=$(date +%F)
+          STAMP=$(date +%Y%m%dT%H%M%SZ)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
           python tools/collect_manifests.py \
             data/evolution/repo_snapshots.jsonl \
             --out "data/evolution/file_manifests_${STAMP}.jsonl" \
@@ -61,7 +54,6 @@ jobs:
         env:
           PYTHONUTF8: "1"
         run: |
-          STAMP=$(date +%F)
           prev=$(ls data/evolution/file_manifests_2*.jsonl 2>/dev/null | grep -v errors | sort | tail -2 | head -1 || true)
           curr="data/evolution/file_manifests_${STAMP}.jsonl"
           if [ -n "$prev" ] && [ "$prev" != "$curr" ]; then
