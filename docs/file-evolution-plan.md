@@ -64,8 +64,8 @@
 
 （`kaggle-prediction` フェーズ 1。確定済みの錨 → 予測 → 何を知るべきか。測定後に §5 で照合）
 
-### 確定済みの錨（このセッションで実測）
-- 1,025 repo = **own 487**（fork 278 / archived 260 を除く）
+### 確定済みの錨（このセッションで実測。※組成は照合時に訂正）
+- 1,025 repo = **fork 488**（うち fork∧archived 210）/ own 537 = **own_active 487** + own_archived 50
 - 30 日以内に push した own repo: **~32（6.6%）**（GraphQL commits_30d → status maintained 30 + active 2）
 - stars/forks はほぼ 0（community 軸平均 0.03/100）
 - size 最大は YuE-extend 21 MB、次いで yuruteto 10.8 MB / yon-straydog 3.0 MB
@@ -107,31 +107,48 @@
 
 ---
 
-## 5. 予測 vs 実測（照合後に埋める）
+## 5. 予測 vs 実測（2026-11-12 測定。as-of: repo_snapshots v1 = 1,025 rows）
+
+測定: `tools/measure_predictions.py` → `wiki/.metadata/reports/repo_predictions_report.md`
+データ: `wiki/.metadata/evolution/repo_snapshots.jsonl`（v1。Step 0 で登録）
 
 | # | 予測 | 実測 | 判定 |
 |---|---|---|---|
-| P1 | スパイク ≥3、最大月 >15% | | |
-| P2 | 中央値 180〜400 日 | | |
-| P3 | Python 35〜50% / JS-TS 20〜35% / null 10〜25% | | |
-| P4 | top10 で >60% | | |
-| P5 | topics <20% | | |
-| P6 | license <30% / homepage <20% / desc 50〜80% | | |
-| P7 | fork の鮮度は偽 | | |
-| P8 | 90 日以内 push 15〜25% | | |
-| P9 | big&dead 過半 | | |
-| P10 | クラスタ 8〜12 | | |
-| P11 | コード churn ≤2 割 | | |
-| P12 | 削除検出可能 | | |
+| P1 | スパイク ≥3、最大月 >15% | スパイク 3（2026-01/03/09）、最大 **30.0%**（2026-09, 308 repo） | ✅ 範囲内 |
+| P2 | 年齢中央値 180〜400 日 | **225 日** | ✅ 範囲内 |
+| P3 | Python 35〜50% / JS-TS 20〜35% / null 10〜25% | Python **8%** / JS-TS **10%** / **null 66%** | ⚠️ 外れ |
+| P4 | top10 で >60% | **50.2%** | ⚠️ 外れ（下） |
+| P5 | topics <20% | **27.8%** | ⚠️ 外れ（上） |
+| P6 | license <30% / homepage <20% / desc 50〜80% | **37.5% / 25.8% / 57.3%** | ⚠️ 上 / ⚠️ 上 / ✅ |
+| P7 | fork の鮮度は偽 | fork **6.4%** vs own **64.3%**（逆転） | ⚠️ 外れ |
+| P8 | 90 日以内 push 15〜25% | **64.3%** | ⚠️ 外れ（上） |
+| P9 | big&dead 過半 | **5/20** | ⚠️ 外れ（下） |
+| P10 | クラスタ 8〜12 | **6** | ⚠️ 外れ（下） |
+| P11 | コード churn ≤2 割 | manifest 2 時点目以降に測定 | — |
+| P12 | 削除検出可能 | 同上 | — |
+
+### 外れの理由（kaggle-prediction 3 分類）
+
+- **データの想定違い**（P3/P4/P9 の主因）: 組織の repo 群には fork の巨大 upstream コピー（remotion 3.7GB / blender / vscode / three.js 等）が含まれ、自作の小 repo は GH が language を検出できないものが **66%**。size top10 は fork が独占するため集中度も下がり、big&dead も「fork は upstream の鮮度が保たれる」ため 5/20 に留まった
+- **指標定義の不一致**（P8）: 事前の錨「30 日以内 push 6.6%」は GraphQL の **commits_30d**（default branch の commit 数）で、今回の **pushed_at** は非 commit push も数える別物。30 日 6.6% → 90 日 64.3% の急峻さには、この定義差と 31〜90 日の push 集中の両方が効いている
+- **予測の偏り**（P5/P6/P7）: 「topics/license は付けていない」「fork は upstream 追従で新鮮」という先入観。実態は fork が元メタデータ（license 等）を保持しており鮮度は低く、own が鮮度を持っていた
+
+### 測定から出てきた新しい知見（予測になかったもの）
+
+1. **2026-09 に 308 repo（30%）が一斉誕生** — 大移動/一括作成の痕跡。次の調査候補
+2. **own の 99.4% が 365 日以内に push** — 組織は墓場ではなく「低温だが生きている」。削除候補の選別は recency だけでなく最後の意味ある commit で行うべき
+3. **big&dead の第一次リスト**: vscode（1.0GB, 2025-07） / alpr_jp（0.8GB, **2019-12**） / langchain / GameDevelopmentToolset / PLATEAU-GIS-Converter → 容量回収 workstream（houki 系）へ
+4. **スナップショット層の運用教訓**: v1 の FIELDS から description/homepage を落としたまま初回測定し「0%」という誤測定をした。**スキーマは測定指標から逆算して決める**（作り直して再測定済み）
 
 ---
 
-## 6. 決定先（この分析が feeds する判断）
+## 6. 決定先（この分析が feeds する判断 — 照合結果を反映）
 
-- **P4/P9** → 容量回収（houki / cleaner 系 workstream）への削除・アーカイブ候補リスト
-- **P3 + recency** → どの言語生態系に投資するか（Muse 側の判断材料）
-- **P5/P6** → repo 衛生の Story（topics・license の一括整備）
-- **P7** → fork の見直し（upstream 追従 vs 削除）
+- **P9 実測 5 件**（vscode 1.0GB / alpr_jp 2019-12 / langchain / GameDevelopmentToolset / PLATEAU-GIS-Converter）→ 容量回収（houki / cleaner 系）への**第一次リスト**
+- **P8 実測 64.3%** → 組織は墓場ではなく「低温だが生きている」。削減議論は recency ではなく churn（manifest 導入後）で行う
+- **P3 null 66%** → 言語ベースの分類は機能しない。名前/Topics ベース（P10 の拡張、閾値 ≥3 に緩和）が実務的
+- **P1 の 2026-09 バースト（308 repo = 30%）** → 何が起きたかの調査（次の調査候補）
+- **P5/P6 実測** → 衛生整備は topics（72% 未設定）よりも description/license の方向で
 - **P11/P12** → 進化追跡の運用評価（#396 の完了条件）
 
 ## 7. 運用上の約束
