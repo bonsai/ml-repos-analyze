@@ -1,0 +1,38 @@
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "data/demo-minyo-sample.csv", "new_size": 140, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "data/observability/balance_snapshots.jsonl", "new_size": 4805, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "data/observability/llm_requests.jsonl", "new_size": 288675, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "docs/demo-report-card.svg", "new_size": 1689, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "docs/langfuse-destination.md", "new_size": 5628, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "docs/wandb-kaggle-setup.md", "new_size": 1732, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "gas/SETUP.md", "new_size": 3067, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "gas/bridge.gs", "new_size": 7101, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "tools/csv2svg.py", "new_size": 4385, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "tools/export_observability.py", "new_size": 2115, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/Observability", "path": "tools/openrouter-langfuse.ps1", "new_size": 8288, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/Observability", "path": "data/integrations.jsonl", "old_size": 9809, "new_size": 9463, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/Observability", "path": "docs/observability-plan.md", "old_size": 8215, "new_size": 12771, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": ".github/workflows/api.yml", "new_size": 432, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/src/ask.js", "new_size": 4263, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/src/llm.js", "new_size": 5509, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/src/search.js", "new_size": 8309, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/src/similar.js", "new_size": 3921, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/test/ask.test.js", "new_size": 3329, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/test/llm.test.js", "new_size": 4795, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/test/mcp-llm.test.js", "new_size": 4409, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/test/mock-wiki.js", "new_size": 5163, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/test/raw-immutability.test.js", "new_size": 6554, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/test/search.test.js", "new_size": 4001, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "api/test/similar.test.js", "new_size": 3249, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/chira-ura", "path": "pwa/ui.yaml", "new_size": 19539, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/chira-ura", "path": "api/src/index.js", "old_size": 6865, "new_size": 9276, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/chira-ura", "path": "api/src/mcp.js", "old_size": 17431, "new_size": 20759, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/chira-ura", "path": "api/test/mcp.test.js", "old_size": 11603, "new_size": 11661, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/furipe-crx", "path": "data/checked_at.txt", "old_size": 33, "new_size": 33, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/furipe-crx", "path": "data/furipe-home.html", "old_size": 43308, "new_size": 45091, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/events_20261112T175508Z.jsonl", "new_size": 12394, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_20261112T175508Z.errors.jsonl", "new_size": 12314, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/file_manifests_20261112T175508Z.jsonl", "new_size": 8340224, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_added", "full_name": "bonsai/ml-repos-analyze", "path": "data/evolution/manifest_diff_20261112T175508Z.md", "new_size": 569, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/ml-repos-analyze", "path": "docs/file-evolution-plan.md", "old_size": 13979, "new_size": 14224, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/rum", "path": "README.md", "old_size": 5785, "new_size": 5906, "detected_at": "2026-11-16T08:48:27+00:00"}
+{"event": "file_changed", "full_name": "bonsai/rum", "path": "src/main.rs", "old_size": 5575, "new_size": 5608, "detected_at": "2026-11-16T08:48:27+00:00"}
